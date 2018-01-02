@@ -1,0 +1,30 @@
+{
+  "mappings": {
+    "person": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "gender": {
+          "type": "keyword"
+        },
+        "married": {
+          "type": "boolean"
+        },
+        "dob": {
+          "type": "date"
+        },
+        "age": {
+          "type": "integer"
+        },
+        "createdAt": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

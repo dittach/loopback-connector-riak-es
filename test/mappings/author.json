@@ -1,0 +1,18 @@
+{
+  "mappings": {
+    "author": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "userId": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

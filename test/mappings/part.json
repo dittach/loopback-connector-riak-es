@@ -1,0 +1,15 @@
+{
+  "mappings": {
+    "part": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "partNumber": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "mappings": {
+    "model": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "str": {
+          "type": "keyword"
+        },
+        "date": {
+          "type": "date"
+        },
+        "num": {
+          "type": "integer"
+        },
+        "bool": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "keyword"
+        },
+        "arr": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "mappings": {
+    "passport": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "ownerId": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "notes": {
+          "type": "keyword"
+        },
+        "number": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

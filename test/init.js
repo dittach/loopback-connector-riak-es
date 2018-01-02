@@ -9,7 +9,8 @@ var config = require('rc')('loopback', {test: {riak: {}}}).test.riak;
 global.getConfig = function (options) {
   var dbConf = {
     host: 'localhost',
-    port: 8098
+    port: 8098,
+    elasticsearch: 'localhost:9200'
   };
 
   if (options) {
@@ -25,12 +26,16 @@ global.getDataSource = global.getSchema = function (options) {
   var db = new DataSource(require('../'), getConfig(options));
 
   var originalSearch = db.connector.search;
+
+  // we need to add some delay to account for indexing time before we
+  // count or search the index. one second seems to be enough. 500ms
+  // not so much. YMMV
   db.connector.search = function(){
     var args = arguments;
 
     setTimeout(function(){
       originalSearch.apply(db.connector, args);
-    }, 8000); // yes, this makes the tests ridiculously slow
+    }, 1000);
   }
 
   var originalCount = db.connector.count;
@@ -39,7 +44,7 @@ global.getDataSource = global.getSchema = function (options) {
 
     setTimeout(function(){
       originalCount.apply(db.connector, args);
-    }, 8000); // yes, this makes the tests ridiculously slow
+    }, 1000);
   }
 
   return db;
@@ -50,53 +55,28 @@ var camelCaseToSnakeCase = function(str){
 }
 
 var prepareBucketForSearching = function(db, bucketName, callback){
-  var indexName = camelCaseToSnakeCase(bucketName);
-  var yz = db.adapter.db;
+  var indexName = camelCaseToSnakeCase(bucketName).toLowerCase();
+  var elasticsearch = db.connector.elasticsearch;
+  var mapping = fs.readFileSync("./test/mappings/" + indexName + ".json").toString('utf8');
 
-  var schemaXML = fs.readFileSync("./test/schemas/" + indexName + ".xml").toString('utf8');
-
-  console.log("creating '", indexName, "' solr/yz schema...");
+  console.log("creating '", indexName, "' es index...");
 
   // :( :( this is definitely not fun. basically because yokozuna is
   // solr and solr is lucene, the interactions between riak and solr
   // take indeterminate amounts of time and we have to basically give
   // plennntttty of time for them to get in sync when we make changes
-  yz.storeSchema({
-    schemaName: indexName,
-    schema:     schemaXML
-  }, function(){
-    console.log("destroying '", indexName, "' index...");
-    yz.storeBucketProps({
-      bucket:    bucketName,
-      searchIndex: "__dont_index__"
-    }, function(){
-      setTimeout(function(){
-        yz.deleteIndex({
-          indexName: indexName
-        }, function(){
-          setTimeout(function(){
-            console.log("creating '", indexName, "' index...");
 
-            yz.storeIndex({
-              indexName:  indexName,
-              schemaName: indexName
-            }, function(){
-              setTimeout(function(){
-                console.log("associating the '", indexName, "' index with the '", bucketName, "' bucket...");
+  console.log("destroying '", indexName, "' index...");
+  elasticsearch.indices.delete({index: indexName}, function(){
+    console.log("creating '", indexName, "' index...");
+    elasticsearch.indices.create({index: indexName, body: mapping}, function(error, result){
+      if (result.acknowledged){
+        console.log("index '", indexName, "' created");
+      } else {
+        console.log("problem creating index '", indexName);
+      }
 
-                yz.storeBucketProps({
-                  bucket:    bucketName,
-                  searchIndex: indexName
-                }, function(){
-                  setTimeout(function(){
-                    callback();
-                  }, 5000);
-                });
-              }, 10000); // creating an index takes an especially long time
-            });
-          }, 5000);
-        });
-      }, 5000);
+      callback();
     });
   });
 }

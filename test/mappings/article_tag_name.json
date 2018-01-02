@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "article_tag_name": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

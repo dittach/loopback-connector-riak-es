@@ -103,13 +103,13 @@ describe("api/search", function(){
       yokozunaStub.yieldsAsync(null, { status: 200, docs: anticipatedDocs }, { statusCode: 200 });
     });
 
-    it("returns the results indexed by riak key", function(done){
+    it("returns the ids", function(done){
       datasource.connector.search(modelName, conditions, function(error, docs){
         assert.ok(!error);
 
-        assert.equal(docs.foo, anticipatedDocs[0]);
-        assert.equal(docs.bar, anticipatedDocs[1]);
-        assert.equal(docs.baz, anticipatedDocs[2]);
+        assert.equal(docs[0], anticipatedDocs[0].id);
+        assert.equal(docs[1], anticipatedDocs[1].id);
+        assert.equal(docs[2], anticipatedDocs[2].id);
 
         done();
       });

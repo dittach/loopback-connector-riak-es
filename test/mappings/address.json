@@ -1,0 +1,15 @@
+{
+  "mappings": {
+    "address": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

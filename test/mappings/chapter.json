@@ -1,0 +1,21 @@
+{
+  "mappings": {
+    "chapter": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "bookType": {
+          "type": "keyword"
+        },
+        "bookId": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

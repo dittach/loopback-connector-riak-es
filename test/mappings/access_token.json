@@ -1,0 +1,21 @@
+{
+  "mappings": {
+    "access_token": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "ttl": {
+          "type": "long"
+        },
+        "created": {
+          "type": "date"
+        },
+        "userId": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "mappings": {
+    "appointment": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "title": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

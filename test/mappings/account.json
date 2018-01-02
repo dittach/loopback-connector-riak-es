@@ -1,0 +1,18 @@
+{
+  "mappings": {
+    "account": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "accountNo": {
+          "type": "keyword"
+        },
+        "supplierName": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

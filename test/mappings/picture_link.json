@@ -1,0 +1,21 @@
+{
+  "mappings": {
+    "picture_link": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "pictureId": {
+          "type": "keyword"
+        },
+        "imageableId": {
+          "type": "keyword"
+        },
+        "imageableType": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

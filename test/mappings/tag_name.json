@@ -1,0 +1,15 @@
+{
+  "mappings": {
+    "tag_name": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

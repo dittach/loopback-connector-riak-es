@@ -1,0 +1,27 @@
+{
+  "mappings": {
+    "picture": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "oid": {
+          "type": "keyword"
+        },
+        "imageableId": {
+          "type": "keyword"
+        },
+        "imageableType": {
+          "type": "keyword"
+        },
+        "type": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

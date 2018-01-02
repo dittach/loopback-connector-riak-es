@@ -1,0 +1,39 @@
+{
+  "mappings": {
+    "user": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "birthday": {
+          "type": "date"
+        },
+        "role": {
+          "type": "keyword"
+        },
+        "vip": {
+          "type": "boolean"
+        },
+        "seq": {
+          "type": "integer"
+        },
+        "order": {
+          "type": "integer"
+        },
+        "email": {
+          "type": "keyword"
+        },
+        "password": {
+          "type": "keyword"
+        },
+        "state": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

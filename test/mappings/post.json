@@ -1,0 +1,33 @@
+{
+  "mappings": {
+    "post": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "userId": {
+          "type": "keyword"
+        },
+        "title": {
+          "type": "keyword"
+        },
+        "subject": {
+          "type": "keyword"
+        },
+        "content": {
+          "type": "text"
+        },
+        "date": {
+          "type": "date"
+        },
+        "published": {
+          "type": "boolean"
+        },
+        "likes": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

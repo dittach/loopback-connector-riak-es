@@ -1,0 +1,18 @@
+{
+  "mappings": {
+    "assembly_part": {
+      "dynamic": false,
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "assemblyId": {
+          "type": "keyword"
+        },
+        "partId": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
