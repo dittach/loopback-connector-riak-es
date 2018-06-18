@@ -52,9 +52,11 @@ The Riak connector can be configured much like any other Loopback connector usin
 ## Warnings
 
 * Some things that are normal in other databases are expensive with Riak and this connector doesn't try to hide any of that, although it does try to take the shortest path (like looking up by key whenever possible.)
+* The basho-riak-client@2.4.0 has a dependency (hoek, loaded from joi) that has a moderate vulnerability.  bash-riak-client is no longer maintained, but we contacted the author to see what options we have.  Worst case, we'll make a new npm and fix the vulnerability.
 
 ## Release notes
 
+* 1.2.1 Fixed error in console logging on undefined index
 * 1.2.0 Tests passing with ElasticSearch
 * 1.0.0 Currently in production over at Dittach. Tests are passing.
 * 0.1.x Improvements to test coverage, feature support, Node v0.12+ support.

@@ -19,14 +19,14 @@
     "deep-extend": "~0.5.0",
     "lodash": "~4.17.4",
     "loopback-connector": "1.x",
-    "elasticsearch": "^14.0.0",
+    "elasticsearch": "^15.0.0",
     "neo-async": "^2.5.0",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "loopback-datasource-juggler": "~2.16.0",
-    "mocha": "~1.20.1",
-    "rc": "~0.5.5",
+    "loopback-datasource-juggler": "~3.22.0",
+    "mocha": "~5.2.0",
+    "rc": "~1.2.8",
     "sinon": "~1.12.2",
     "should": "^5.0.0"
   },
