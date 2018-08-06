@@ -56,6 +56,7 @@ The Riak connector can be configured much like any other Loopback connector usin
 
 ## Release notes
 
+* 1.2.3 Expanded LIMIT to match elasticsearch's max_result_window setting.
 * 1.2.2 Fixed issue with LIMIT not being honored in search queries.
 * 1.2.1 Fixed error in console logging on undefined index
 * 1.2.0 Tests passing with ElasticSearch
