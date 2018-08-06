@@ -56,6 +56,7 @@ The Riak connector can be configured much like any other Loopback connector usin
 
 ## Release notes
 
+* 1.2.2 Fixed issue with LIMIT not being honored in search queries.
 * 1.2.1 Fixed error in console logging on undefined index
 * 1.2.0 Tests passing with ElasticSearch
 * 1.0.0 Currently in production over at Dittach. Tests are passing.
